@@ -3,7 +3,6 @@
 namespace BabaYaga\Customer\Setup;
 
 use Magento\Customer\Api\CustomerMetadataInterface;
-use Magento\Customer\Api\MetadataInterface;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
