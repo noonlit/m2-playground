@@ -1,0 +1,7 @@
+<?php
+
+echo 'Current instance: ' . get_class($this) . '<br />';
+echo 'Current block: ' . get_class($block) . '<br />';
+echo 'Output from view model ' . get_class($block->getData('viewModel')) . ' is: ' . $block->getData('viewModel')->getFlavourText() . '<br />';
+
+echo "Note: Used hellmouths cannot be refunded.";
