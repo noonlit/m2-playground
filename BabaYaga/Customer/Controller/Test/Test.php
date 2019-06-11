@@ -68,7 +68,7 @@ class Test extends Action
          */
         $customer->setCustomAttribute('is_witch', !$value);
         $this->customerRepository->save($customer);
-        
+
         $updatedCustomer = $this->customerRepository->getById($customerId);
         $isWitchUpdated = $customer->getCustomAttribute('is_witch');
         $updatedValue = is_null($isWitchUpdated) ? false : (bool)$isWitchUpdated->getValue();

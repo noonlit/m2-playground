@@ -73,9 +73,7 @@ class AddMerchantNoteToOrder
     public function beforeSave(OrderRepositoryInterface $subject, OrderInterface $entity)
     {
         $extensionAttributes = $entity->getExtensionAttributes();
-        $value = $extensionAttributes->getMerchantNote();
-
-        $entity->setMerchantNote($value);
+        $entity->setMerchantNote($extensionAttributes->getMerchantNote());
 
         return [$entity];
     }
