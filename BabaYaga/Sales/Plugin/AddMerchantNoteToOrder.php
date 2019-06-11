@@ -52,7 +52,7 @@ class AddMerchantNoteToOrder
     {
         $orders = $searchResult->getItems();
 
-        foreach ($orders as &$order) {
+        foreach ($orders as $order) {
             $this->setMerchantNoteExtensionAttribute($order);
         }
 
