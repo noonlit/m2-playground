@@ -2,12 +2,14 @@
 
 namespace BabaYaga\Customer\Setup;
 
+use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Customer\Api\CustomerMetadataInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Sales\Model\Order;
 
 class UpgradeData implements UpgradeDataInterface
 {

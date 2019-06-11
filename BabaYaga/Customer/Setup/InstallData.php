@@ -6,9 +6,11 @@ use Magento\Customer\Api\CustomerMetadataInterface;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
+use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 
 /**
  * Class InstallData
@@ -33,21 +35,29 @@ class InstallData implements InstallDataInterface
     private $customerAttributeResource;
 
     /**
+     * @var AttributeSetFactory
+     */
+    private $attributeSetFactory;
+
+    /**
      * InstallData constructor.
      *
      * @param EavSetupFactory                                 $eavSetupFactory
      * @param Config                                          $config
      * @param \Magento\Customer\Model\ResourceModel\Attribute $customerAttributeResource
+     * @param AttributeSetFactory                             $attributeSetFactory
      */
     public function __construct(
         EavSetupFactory $eavSetupFactory,
         Config $config,
-        \Magento\Customer\Model\ResourceModel\Attribute $customerAttributeResource
+        \Magento\Customer\Model\ResourceModel\Attribute $customerAttributeResource,
+        AttributeSetFactory $attributeSetFactory
     )
     {
         $this->eavConfig = $config;
         $this->eavSetupFactory = $eavSetupFactory;
         $this->customerAttributeResource = $customerAttributeResource;
+        $this->attributeSetFactory = $attributeSetFactory;
     }
 
     /**
@@ -64,6 +74,8 @@ class InstallData implements InstallDataInterface
         $eavSetup      = $this->eavSetupFactory->create(['setup' => $setup]);
         $attributeCode = 'is_witch';
 
+        $eavSetup->removeAttribute(CustomerMetadataInterface::ENTITY_TYPE_CUSTOMER, $attributeCode);
+
         /**
          * Create EAV attribute.
          *
@@ -77,7 +89,7 @@ class InstallData implements InstallDataInterface
             [
                 'type'            => 'int',
                 'label'           => 'Is the Customer a Witch?!',
-                'input'           => 'boolean',
+                'input'           => Table::TYPE_BOOLEAN,
                 'source'          => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
                 'required'        => 0,
                 'visible'         => 1,
@@ -90,10 +102,16 @@ class InstallData implements InstallDataInterface
         /**
          * Add attribute to customer attribute set.
          */
+
+        $attributeSetId = CustomerMetadataInterface::ATTRIBUTE_SET_ID_CUSTOMER;
+
+        $attributeSet = $this->attributeSetFactory->create();
+        $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
+
         $eavSetup->addAttributeToSet(
             CustomerMetadataInterface::ENTITY_TYPE_CUSTOMER,
-            CustomerMetadataInterface::ATTRIBUTE_SET_ID_CUSTOMER,
-            null,
+            $attributeSetId,
+            $attributeGroupId,
             $attributeCode
         );
 
