@@ -10,11 +10,11 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 
 /**
- * Class AddNote
+ * Class AddInfoToCustomerAddress
  *
- * @package BabaYaga\Customer\Setup\Patch
+ * @package BabaYaga\Customer\Setup\Patch\Data
  */
-class AddNote implements DataPatchInterface, PatchRevertableInterface
+class AddInfoToCustomerAddress implements DataPatchInterface, PatchRevertableInterface
 {
     /**
      * @var ModuleDataSetupInterface
@@ -37,7 +37,7 @@ class AddNote implements DataPatchInterface, PatchRevertableInterface
     private $customerAttributeResource;
 
     /**
-     * AddOccupation constructor.
+     * AddInfoToCustomerAddress constructor.
      *
      * @param ModuleDataSetupInterface                        $moduleDataSetup
      * @param CustomerSetupFactory                            $customerSetupFactory
@@ -57,7 +57,7 @@ class AddNote implements DataPatchInterface, PatchRevertableInterface
     }
 
     /**
-     * Add info attribute to customer address.
+     * Add additional_info attribute to customer address.
      *
      * @return DataPatchInterface|void
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -65,9 +65,9 @@ class AddNote implements DataPatchInterface, PatchRevertableInterface
     public function apply()
     {
         $customerSetup = $this->customerSetupFactory->create(['setup' => $this->moduleDataSetup]);
-        $attributeCode = 'info';
+        $attributeCode = 'additional_info';
 
-        $customerSetup->removeAttribute(AddressMetadataInterface::ENTITY_TYPE_ADDRESS, 'info');
+        $customerSetup->removeAttribute(AddressMetadataInterface::ENTITY_TYPE_ADDRESS, $attributeCode);
 
         /**
          * Create EAV attribute.
@@ -76,7 +76,7 @@ class AddNote implements DataPatchInterface, PatchRevertableInterface
             AddressMetadataInterface::ENTITY_TYPE_ADDRESS,
             $attributeCode,
             [
-                'label'        => 'Extra info',
+                'label'        => 'Additional information about this address',
                 'type'         => 'text',
                 'required'     => 0,
                 'visible'      => 1,
@@ -131,7 +131,7 @@ class AddNote implements DataPatchInterface, PatchRevertableInterface
     {
         $customerSetup = $this->customerSetupFactory->create(['setup' => $this->moduleDataSetup]);
 
-        $customerSetup->removeAttribute(AddressMetadataInterface::ATTRIBUTE_SET_ID_ADDRESS, 'info');
+        $customerSetup->removeAttribute(AddressMetadataInterface::ATTRIBUTE_SET_ID_ADDRESS, 'additional_info');
     }
 
     /**

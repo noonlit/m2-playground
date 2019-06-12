@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Add columns to quote and order address to match the additional_info one on the customer address -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote_address" resource="checkout">
+        <column xsi:type="text" name="additional_info" nullable="true" comment="Additional info about the address"/>
+    </table>
+    <table name="sales_order_address" resource="sales">
+        <column xsi:type="text" name="additional_info" nullable="true" comment="Additional info about the address"/>
+    </table>
+</schema>
