@@ -90,11 +90,12 @@ class AddCustomerNoteToOrder
     }
 
     /**
-     * Saves the extension attribute too.
+     * Saves extension attribute too.
      *
      * @param CustomerRepositoryInterface $subject
      * @param CustomerInterface           $entity
      *
+     * @return CustomerInterface
      * @throws \Magento\Framework\Exception\AlreadyExistsException
      */
     public function afterSave(CustomerRepositoryInterface $subject, CustomerInterface $entity)
@@ -102,6 +103,8 @@ class AddCustomerNoteToOrder
         $note = $entity->getExtensionAttributes()->getCustomerNote();
 
         $this->customerNoteRepository->save($note);
+
+        return $entity;
     }
 
     /**
