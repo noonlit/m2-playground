@@ -1,7 +1,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- plugin for persisting customer notes -->
     <type name="Magento\Customer\Api\CustomerRepositoryInterface">
         <plugin name="customerNoteToCustomer" type="BabaYaga\Customer\Plugin\AddCustomerNoteToCustomer"/>
     </type>
+
     <preference for="BabaYaga\Customer\Api\Data\CustomerNoteInterface" type="BabaYaga\Customer\Model\Note"/>
 </config>

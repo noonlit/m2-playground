@@ -10,7 +10,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchRevertableInterface;
 
 /**
- * Class AddOccupation
+ * Class AddNote
  *
  * @package BabaYaga\Customer\Setup\Patch
  */
