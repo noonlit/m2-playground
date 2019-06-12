@@ -27,6 +27,11 @@ class AddCustomerNoteToCustomer
     private $customerNoteRepository;
 
     /**
+     * @var \BabaYaga\Customer\Model\Note
+     */
+    private $note;
+
+    /**
      * AddCustomerNoteToOrder constructor.
      *
      * @param CustomerExtensionFactory $customerExtensionFactory
@@ -92,6 +97,26 @@ class AddCustomerNoteToCustomer
     }
 
     /**
+     * Save the current customer note locally before the entity is saved.
+     *
+     * Coding standards say that plugins must be stateless, but this is currently the most simple solution that comes to mind.
+     *
+     * This is because the customer model is loaded during the save process and the note is overwritten with its db value,
+     * so we will have to retrieve it from here.
+     *
+     * @param CustomerRepositoryInterface $subject
+     * @param CustomerInterface           $entity
+     *
+     * @return array
+     */
+    public function beforeSave(CustomerRepositoryInterface $subject, CustomerInterface $entity)
+    {
+        $this->note = $entity->getExtensionAttributes()->getCustomerNote();
+
+        return [$entity];
+    }
+
+    /**
      * Saves extension attribute too.
      *
      * See https://devdocs.magento.com/guides/v2.3/extension-dev-guide/extension_attributes/adding-attributes.html#add-plugin-to-product-repository
@@ -104,9 +129,7 @@ class AddCustomerNoteToCustomer
      */
     public function afterSave(CustomerRepositoryInterface $subject, CustomerInterface $entity)
     {
-        $note = $entity->getExtensionAttributes()->getCustomerNote();
-
-        $this->customerNoteRepository->save($note);
+        $this->customerNoteRepository->save($this->note);
 
         return $entity;
     }
