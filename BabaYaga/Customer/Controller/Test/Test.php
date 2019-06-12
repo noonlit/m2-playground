@@ -111,7 +111,7 @@ class Test extends Action
          */
         $customerId = 1;
         $customer = $this->customerRepository->getById($customerId);
-        $repoResult = $customer->getExtensionAttributes()->getCustomerNote();
+        $result = $customer->getExtensionAttributes()->getCustomerNote();
 
         /**
          * Get list + extension attribute
