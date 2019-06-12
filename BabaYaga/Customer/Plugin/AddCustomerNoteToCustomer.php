@@ -12,7 +12,7 @@ use Magento\Customer\Api\Data\CustomerInterface;
  *
  * @package BabaYaga\Customer\Plugin
  */
-class AddCustomerNoteToOrder
+class AddCustomerNoteToCustomer
 {
     const ATTRIBUTE_CODE = 'customer_note';
 
