@@ -3,8 +3,6 @@
 namespace BabaYaga\Checkout\Plugin;
 
 use Magento\Checkout\Block\Checkout\LayoutProcessor;
-use Magento\Customer\Api\AddressMetadataInterface;
-use Magento\Eav\Model\Config;
 
 /**
  * Class AddFieldsToCheckout
@@ -13,21 +11,6 @@ use Magento\Eav\Model\Config;
  */
 class AddFieldsToCheckout
 {
-    /**
-     * @var Config
-     */
-    private $eavConfig;
-
-    /**
-     * AddFieldsToCheckout constructor.
-     *
-     * @param Config $eavConfig
-     */
-    public function __construct(Config $eavConfig)
-    {
-        $this->eavConfig = $eavConfig;
-    }
-
     /**
      * @param LayoutProcessor $subject
      * @param array           $jsLayout
