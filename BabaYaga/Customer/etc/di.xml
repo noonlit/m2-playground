@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="customerNoteToOrder" type="BabaYaga\Customer\Plugin\AddCustomerNoteToOrder"/>
+    </type>
+    <preference for="BabaYaga\Customer\Api\Data\CustomerNoteInterface" type="BabaYaga\Customer\Model\Note"/>
+</config>

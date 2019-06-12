@@ -9,7 +9,6 @@ use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Customer\Api\CustomerMetadataInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
-use Magento\Sales\Model\Order;
 
 class UpgradeData implements UpgradeDataInterface
 {
