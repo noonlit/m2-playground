@@ -14,7 +14,7 @@ use Magento\Framework\Setup\Patch\PatchRevertableInterface;
  *
  * @package BabaYaga\Customer\Setup\Patch
  */
-class AddOccupation implements DataPatchInterface, PatchRevertableInterface
+class AddNote implements DataPatchInterface, PatchRevertableInterface
 {
     /**
      * @var ModuleDataSetupInterface
