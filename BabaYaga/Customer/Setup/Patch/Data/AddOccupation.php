@@ -57,6 +57,8 @@ class AddOccupation implements DataPatchInterface, PatchRevertableInterface
     }
 
     /**
+     * Add info attribute to customer address.
+     *
      * @return DataPatchInterface|void
      * @throws \Magento\Framework\Exception\LocalizedException
      */
