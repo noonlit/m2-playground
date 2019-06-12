@@ -129,7 +129,12 @@ class AddCustomerNoteToCustomer
      */
     public function afterSave(CustomerRepositoryInterface $subject, CustomerInterface $entity)
     {
-        $this->customerNoteRepository->save($this->note);
+        $note = $this->note;
+
+        // if the note is new, it needs a customer ID (foreign key)
+        $note->setCustomerId($entity->getId());
+
+        $this->customerNoteRepository->save($note);
 
         return $entity;
     }
