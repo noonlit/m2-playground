@@ -41,6 +41,8 @@ class AddCustomerNoteToOrder
     /**
      * Sets the customer note on the customer after retrieval.
      *
+     * See https://devdocs.magento.com/guides/v2.3/extension-dev-guide/extension_attributes/adding-attributes.html#add-plugin-to-product-repository.
+     *
      * @param CustomerRepositoryInterface $subject
      * @param CustomerInterface           $entity
      *
@@ -91,6 +93,8 @@ class AddCustomerNoteToOrder
 
     /**
      * Saves extension attribute too.
+     *
+     * See https://devdocs.magento.com/guides/v2.3/extension-dev-guide/extension_attributes/adding-attributes.html#add-plugin-to-product-repository
      *
      * @param CustomerRepositoryInterface $subject
      * @param CustomerInterface           $entity
