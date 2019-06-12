@@ -74,28 +74,7 @@ class AddFieldsToCheckout
             'visible'     => true,
         ];
 
-        if ($this->isAttributeRequired($attributeCode)) {
-            $field['validation'] = ['required-entry' => true];
-        }
-
         return $this->addFieldToShippingAddress($jsLayout, $attributeCode, $field);
-    }
-
-
-    /**
-     * Checks whether the attribute is required.
-     *
-     * @param string $attributeCode
-     *
-     * @return bool
-     */
-    protected function isAttributeRequired(string $attributeCode)
-    {
-        try {
-            return (bool) $this->eavConfig->getAttribute(AddressMetadataInterface::ENTITY_TYPE_ADDRESS, $attributeCode)->getIsRequired();
-        } catch (\Exception $exception) {
-            return false;
-        }
     }
 
     /**
