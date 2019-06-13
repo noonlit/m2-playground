@@ -2,14 +2,7 @@
 
 namespace BabaYaga\Checkout\Plugin;
 
-use Amazon\Payment\Api\OrderInformationManagementInterface;
-use Amazon\Payment\Domain\AmazonConstraint;
-use Closure;
 use Magento\Checkout\Api\Data\ShippingInformationInterface;
-use Magento\Checkout\Api\ShippingInformationManagementInterface;
-use Magento\Customer\Api\Data\AddressExtension;
-use Magento\Quote\Api\CartRepositoryInterface;
-use Amazon\Login\Helper\Session as LoginSessionHelper;
 use Magento\Quote\Model\QuoteRepository;
 
 /**
