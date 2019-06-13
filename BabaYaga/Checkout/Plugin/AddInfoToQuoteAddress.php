@@ -27,12 +27,12 @@ class AddInfoToQuoteAddress
     }
 
     /**
-     * So the docs say that you should configure an extension attribute for Magento/Quote/Api/Data/AddressInterface.php
-     * and show you that the data is retrieved from a ShippingInformationInterface instance.
+     * The docs say that you should configure an extension attribute for Magento/Quote/Api/Data/AddressInterface.php
+     * and show you that the extension attribute data is retrieved from a ShippingInformationInterface instance.
      *
      * https://devdocs.magento.com/guides/v2.3/howdoi/checkout/checkout_new_field.html
      *
-     * You must configure both in extension_attributes.xml (see example).
+     * You must configure both extension attributes in extension_attributes.xml (see example in this module).
      *
      * Here we copy the additional_info attribute value from the shipping information interface extension attributes
      * to the quote address.
