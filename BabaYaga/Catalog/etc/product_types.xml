@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_types.xsd">
+    <type name="spellbook" label="Spellbook" modelInstance="BabaYaga\Catalog\Model\Product\Type\Spellbook"
+          composite="false" isQty="true" canUseQtyDecimals="false" sortOrder="120">
+        <priceModel instance="BabaYaga\Catalog\Model\Product\Price"/>
+        <customAttributes>
+            <attribute name="refundable" value="false"/>
+        </customAttributes>
+    </type>
+    <composableTypes>
+        <!-- When adding child products to a composite product type (grouped, configurable or bundle),
+        the admin interface will only show products where the associated product type has explicitly declared its eligibility
+        to be the child of a composite product. -->
+        <type name="spellbook"/>
+    </composableTypes>
+</config>

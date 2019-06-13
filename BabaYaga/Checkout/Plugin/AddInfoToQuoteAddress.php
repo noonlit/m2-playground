@@ -14,7 +14,7 @@ use Magento\Quote\Model\QuoteRepository;
 class AddInfoToQuoteAddress
 {
     /**
-     * @var QuoteRepository 
+     * @var QuoteRepository
      */
     protected $quoteRepository;
 
