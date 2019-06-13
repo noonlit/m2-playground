@@ -4,4 +4,8 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="add_checkout_fields" type="BabaYaga\Checkout\Plugin\AddFieldsToCheckout"/>
     </type>
+
+    <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
+        <plugin name="infoToQuote" type="BabaYaga\Checkout\Plugin\AddInfoToQuoteAddress"/>
+    </type>
 </config>
