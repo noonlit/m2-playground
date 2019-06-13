@@ -3,6 +3,7 @@
 namespace BabaYaga\Checkout\Plugin;
 
 use Magento\Checkout\Api\Data\ShippingInformationInterface;
+use Magento\Checkout\Model\ShippingInformationManagement;
 use Magento\Quote\Model\QuoteRepository;
 
 /**
@@ -12,8 +13,16 @@ use Magento\Quote\Model\QuoteRepository;
  */
 class AddInfoToQuoteAddress
 {
+    /**
+     * @var QuoteRepository 
+     */
     protected $quoteRepository;
 
+    /**
+     * AddInfoToQuoteAddress constructor.
+     *
+     * @param QuoteRepository $quoteRepository
+     */
     public function __construct(QuoteRepository $quoteRepository)
     {
         $this->quoteRepository = $quoteRepository;
@@ -30,16 +39,16 @@ class AddInfoToQuoteAddress
      * Here we copy the additional_info attribute value from the shipping information interface extension attributes
      * to the quote address.
      *
-     * @param \Magento\Checkout\Model\ShippingInformationManagement $subject
-     * @param                                                       $cartId
-     * @param ShippingInformationInterface                          $addressInformation
+     * @param ShippingInformationManagement $subject
+     * @param                               $cartId
+     * @param ShippingInformationInterface  $addressInformation
      *
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function beforeSaveAddressInformation(
-        \Magento\Checkout\Model\ShippingInformationManagement $subject,
+        ShippingInformationManagement $subject,
         $cartId,
-        \Magento\Checkout\Api\Data\ShippingInformationInterface $addressInformation
+        ShippingInformationInterface $addressInformation
     ) {
         if (!$extAttributes = $addressInformation->getExtensionAttributes()) {
             return;
