@@ -14,4 +14,10 @@
         to be the child of a composite product. -->
         <type name="spellbook"/>
     </composableTypes>
+    <!-- in theory, this has to be specified for the product to be available for addition to bundle products -->
+    <type name="bundle">
+        <allowedSelectionTypes>
+            <type name="spellbook"/>
+        </allowedSelectionTypes>
+    </type>
 </config>
