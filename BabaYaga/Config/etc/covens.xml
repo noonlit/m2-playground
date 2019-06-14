@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="covens.xsd">
+    <covens area="UK">
+        <coven>
+            <name>We Three</name>
+            <postcode>999</postcode>
+        </coven>
+        <coven>
+            <name>Nanny Ogg Will Cook</name>
+            <postcode>123</postcode>
+        </coven>
+    </covens>
+    <covens area="RO">
+        <coven>
+            <name>Ileana vs. Zmeii</name>
+            <postcode>000</postcode>
+        </coven>
+    </covens>
+</config>
