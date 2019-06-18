@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andrabarsoianu
- * Date: 6/14/19
- * Time: 10:15 AM
- */
 
 namespace BabaYaga\Config\Model\Config;
 
