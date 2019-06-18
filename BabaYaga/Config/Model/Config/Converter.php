@@ -31,18 +31,14 @@ class Converter implements \Magento\Framework\Config\ConverterInterface
         foreach ($main as $covensNode) {
             $area = $covensNode->getAttribute('area');
 
-            /**
-             * this is the content of a single coven node
-             */
             $covenNodes = $covensNode->getElementsByTagName('coven');
 
             foreach ($covenNodes as $covenNode) {
+                // improvement: how to read these as single elements, which they are?
                 $names = $covenNode->getElementsByTagName('name');
-                // improvement: how to read this as a single element?
                 foreach ($names as $name) {
                     $data[$covenNode->localName]['name'] = $name->textContent;
                 }
-
 
                 $postcodes = $covenNode->getElementsByTagName('postcode');
                 foreach ($postcodes as $code) {
