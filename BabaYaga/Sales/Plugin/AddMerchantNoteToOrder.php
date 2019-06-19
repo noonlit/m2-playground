@@ -6,6 +6,11 @@ use Magento\Sales\Api\Data\OrderExtensionFactory;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
+/**
+ * Class AddMerchantNoteToOrder
+ *
+ * @package BabaYaga\Sales\Plugin
+ */
 class AddMerchantNoteToOrder
 {
     const ATTRIBUTE_CODE = 'merchant_note';
