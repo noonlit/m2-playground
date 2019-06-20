@@ -143,7 +143,7 @@ class CreateCartPriceRule
         );
 
         // Generate and assign coupon codes to the newly created Cart Price Rule.
-        $ruleId = (int)$savedCartPriceRule->getRuleId();
+        $ruleId = (int) $savedCartPriceRule->getRuleId();
         $params = ['length' => self::LENGTH, 'prefix' => self::PREFIX];
         $this->generateCouponCodesService->execute(self::COUPON_CODES_QTY, $ruleId, $params);
     }
