@@ -1,0 +1,59 @@
+<?php $item = $block->getItem(); ?>
+
+<tbody class="cart item">
+    <tr class="item-info">
+        <td data-th="<?= $block->escapeHtml(__('Item')) ?>" class="col item">
+                <span class="product-item-photo">
+                    <?= $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml() ?>
+                </span>
+            <div class="product-item-details">
+                <strong class="product-item-name">
+
+                    <?= $block->escapeHtml($block->getProductName()) ?>
+                </strong>
+            </div>
+        </td>
+
+        <td class="col price" data-th="<?= $block->escapeHtml(__('Price')) ?>">
+            <?= $block->getUnitPriceHtml($item) ?>
+        </td>
+
+        <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
+            <div class="field qty">
+                <label class="label" for="cart-<?= /* @escapeNotVerified */
+                $item->getId() ?>-qty">
+                    <span><?= /* @escapeNotVerified */
+                        __('Qty') ?></span>
+                </label>
+                <div class="control qty">
+                    <input id="cart-<?= /* @escapeNotVerified */
+                    $item->getId() ?>-qty"
+                           name="cart[<?= /* @escapeNotVerified */
+                           $item->getId() ?>][qty]"
+                           data-cart-item-id="<?= $block->escapeHtml($item->getSku()) ?>"
+                           value="<?= /* @escapeNotVerified */
+                           $block->getQty() ?>"
+                           type="number"
+                           size="4"
+                           title="<?= $block->escapeHtml(__('Qty')) ?>"
+                           class="input-text qty"
+                           data-validate="{required:true,'validate-greater-than-zero':true}"
+                           data-role="cart-item-qty"/>
+                </div>
+            </div>
+        </td>
+
+        <td class="col subtotal" data-th="<?= $block->escapeHtml(__('Subtotal')) ?>">
+            <?= $block->getRowTotalHtml($item) ?>
+        </td>
+    </tr>
+
+    <tr class="item-actions">
+        <td colspan="4">
+            <div class="actions-toolbar">
+                <?= /* @escapeNotVerified */
+                $block->getActions($item) ?>
+            </div>
+        </td>
+    </tr>
+</tbody>
