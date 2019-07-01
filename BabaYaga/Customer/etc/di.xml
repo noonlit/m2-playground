@@ -17,11 +17,12 @@
             </argument>
         </arguments>
     </type>
-    <virtualType name="BabaYaga\Customer\Model\ResourceModel\Note\Grid\Collection"
-                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <type name="BabaYaga\Customer\Model\ResourceModel\Note\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">customer_note</argument>
+            <argument name="eventPrefix" xsi:type="string">baba_yaga_customer_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">baba_yaga_customer_grid_collection</argument>
             <argument name="resourceModel" xsi:type="string">BabaYaga\Customer\Model\ResourceModel\Note</argument>
         </arguments>
-    </virtualType>
+    </type>
 </config>
