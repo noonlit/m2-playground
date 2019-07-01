@@ -5,5 +5,23 @@
         <plugin name="customerNoteToCustomer" type="BabaYaga\Customer\Plugin\AddCustomerNoteToCustomer"/>
     </type>
 
+    <!-- specify concrete class for interface -->
     <preference for="BabaYaga\Customer\Api\Data\CustomerNoteInterface" type="BabaYaga\Customer\Model\Note"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="baba_yaga_note_listing_data_source" xsi:type="string">
+                    BabaYaga\Customer\Model\ResourceModel\Note\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="BabaYaga\Customer\Model\ResourceModel\Note\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_note</argument>
+            <argument name="resourceModel" xsi:type="string">BabaYaga\Customer\Model\ResourceModel\Note</argument>
+        </arguments>
+    </virtualType>
 </config>
