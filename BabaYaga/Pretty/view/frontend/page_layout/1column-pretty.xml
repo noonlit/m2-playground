@@ -1,0 +1,5 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <!-- if we wanted to build it from scratch, we would have added the empty layout here -->
+    <update handle="1column"/>
+</layout>

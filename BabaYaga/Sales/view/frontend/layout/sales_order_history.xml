@@ -8,4 +8,12 @@
             </arguments>
         </block>
     </referenceContainer>
+
+    <!-- add new column to customer order history template -->
+    <referenceBlock name="sales.order.history.extra.column.header">
+        <block class="Magento\Framework\View\Element\Template" name="babayaga.extra.header" as="babayaga.extra.header" template="BabaYaga_Sales::header.phtml"/>
+    </referenceBlock>
+    <referenceBlock name="sales.order.history.extra.container">
+        <block class="Magento\Framework\View\Element\Template" name="babayaga.extra.container" as="babayaga.extra.container" template="BabaYaga_Sales::content.phtml"/>
+    </referenceBlock>
 </page>

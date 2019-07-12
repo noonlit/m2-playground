@@ -1,0 +1,20 @@
+<!-- use the new layout for this test page -->
+<page layout="1column-pretty" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- destroy the fpc! -->
+        <block name="cache_test" cacheable="false"/>
+
+        <!-- do not display the registration link block, without actually removing it -->
+        <referenceBlock name="register-link" display="false"/>
+
+        <!-- add a class and an id to header panel wrapper -->
+        <referenceContainer name="header.panel.wrapper" htmlClass="panel wrapper test" htmlTag="div" htmlId="panel" before="-"/>
+
+        <!-- // todo: find out why it's duplicated -->
+        <move element="store.settings.currency" as="store.settings.currency.footer" destination="footer" before="store_switcher"/>
+
+        <!-- remove newsletter block -->
+        <referenceBlock name="form.subscribe" remove="true"/>
+    </body>
+</page>
