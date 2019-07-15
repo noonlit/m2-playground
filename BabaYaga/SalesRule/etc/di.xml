@@ -4,7 +4,6 @@
         <plugin name="addCondition" type="BabaYaga\SalesRule\Plugin\AddSalesRuleCondition"/>
     </type>
 
-    <!-- -->
     <type name="BabaYaga\SalesRule\Model\Rule\Condition\Customer">
         <arguments>
             <argument name="data" xsi:type="array">
