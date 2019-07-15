@@ -16,5 +16,14 @@
 
         <!-- remove newsletter block -->
         <referenceBlock name="form.subscribe" remove="true"/>
+
+        <!-- add a test block with a template -->
+        <referenceContainer name="main">
+            <block name="test.access.other.blocks" template="BabaYaga_Pretty::test.phtml">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">test_css</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>

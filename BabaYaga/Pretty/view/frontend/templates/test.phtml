@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @var $block Magento\Framework\View\Element\Template
+ */
+
+// test access to properties set via layout
+echo $block->getData('css_class');
+
+// proof non-child blocks are accessible from block template
+echo $block->getBlockHtml('copyright'); // actually renders the copyright
