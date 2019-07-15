@@ -2,6 +2,7 @@
 
 namespace BabaYaga\Customer\Ui;
 
+use BabaYaga\Customer\Model\ResourceModel\Note\CollectionFactory;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
 /**
@@ -19,23 +20,25 @@ class DataProvider extends AbstractDataProvider
     /**
      * DataProvider constructor.
      *
-     * @param       $name
-     * @param       $primaryFieldName
-     * @param       $requestFieldName
-     * @param       $collectionFactory
-     * @param array $meta
-     * @param array $data
+     * @param                    $name
+     * @param                    $primaryFieldName
+     * @param                    $requestFieldName
+     * @param CollectionFactory  $collectionFactory
+     * @param array              $meta
+     * @param array              $data
      */
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        $collectionFactory,
+        CollectionFactory $collectionFactory,
         array $meta = [],
         array $data = []
     ) {
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->collection = $collectionFactory->create();
+
+        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
+
     }
 
     /**
