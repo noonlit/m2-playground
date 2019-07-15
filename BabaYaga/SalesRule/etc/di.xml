@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\SalesRule\Model\Rule\Condition\Combine">
+        <plugin name="addCondition" type="BabaYaga\SalesRule\Plugin\AddSalesRuleCondition"/>
+    </type>
+
+    <!-- -->
+    <type name="BabaYaga\SalesRule\Model\Rule\Condition\Customer">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="form_name" xsi:type="string">sales_rule_form</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
