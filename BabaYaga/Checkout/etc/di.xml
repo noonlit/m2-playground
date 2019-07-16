@@ -8,4 +8,6 @@
     <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
         <plugin name="infoToQuote" type="BabaYaga\Checkout\Plugin\AddInfoToQuoteAddress"/>
     </type>
+
+    <preference for="Magento\Checkout\Api\ShippingInformationManagementInterface" type="BabaYaga\Checkout\Model\ShippingInformationManagement"/>
 </config>
