@@ -15,7 +15,7 @@ class Test extends Action
     private $quoteRepository;
 
     /**
-     * @var Quote\Item\ToOrderItem 
+     * @var Quote\Item\ToOrderItem
      */
     private $orderItemConverter;
 
@@ -67,7 +67,7 @@ class Test extends Action
             // Check if options are retained on order item.
             $orderItem = $this->orderItemConverter->convert($item);
 
-            // Spoiler: they are not. You'll need to add a plugin for Magento\Catalog\Model\Product\Type\AbstractType::getOrderOptions($product)
+            // Spoiler: they are not. You'll need to customize Magento\Catalog\Model\Product\Type\AbstractType::getOrderOptions($product)
 
             // The product itself does have the additional_options custom option set,
             // but it is not considered something that should be transferred to the order.
