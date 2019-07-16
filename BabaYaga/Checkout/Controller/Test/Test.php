@@ -70,7 +70,7 @@ class Test extends Action
             // Spoiler: they are not. You'll need to customize Magento\Catalog\Model\Product\Type\AbstractType::getOrderOptions($product)
 
             // The product itself does have the additional_options custom option set,
-            // but it is not considered something that should be transferred to the order.
+            // but it is not considered something that should be transferred to the order item.
 
             // Then the options can be retrieved with $orderItem->getProductOptions();
 
