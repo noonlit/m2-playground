@@ -12,44 +12,19 @@ use Magento\Ui\DataProvider\AbstractDataProvider;
  */
 class DataProvider extends AbstractDataProvider
 {
-    /**
-     * @var \BabaYaga\Customer\Model\ResourceModel\Note\Collection
-     */
-    protected $collection;
 
     /**
-     * DataProvider constructor.
+     * Returns mock data.
      *
-     * @param                    $name
-     * @param                    $primaryFieldName
-     * @param                    $requestFieldName
-     * @param CollectionFactory  $collectionFactory
-     * @param array              $meta
-     * @param array              $data
-     */
-    public function __construct(
-        $name,
-        $primaryFieldName,
-        $requestFieldName,
-        CollectionFactory $collectionFactory,
-        array $meta = [],
-        array $data = []
-    ) {
-        $this->collection = $collectionFactory->create();
-
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
-
-    }
-
-    /**
+     * // TODO figure out why setup:di:compile throws error for this class.
+     *
      * @return array
      */
     public function getData()
     {
         $result = [];
-        foreach ($this->collection->getItems() as $item) {
-            $result[$item->getId()]['general'] = $item->getData();
-        }
+        $result[1]['general'] = ['customer_id' => 1, 'text' => 'this is text'];
+
         return $result;
     }
 }
