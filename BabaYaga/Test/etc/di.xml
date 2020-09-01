@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Elasticsearch\Model\Adapter\FieldMapper\Product\FieldProvider\StaticField">
+        <plugin name="searchMappingPlugin" type="BabaYaga\Test\Plugin\Search\FieldMapper\StaticField" />
+    </type>
+    <type name="Magento\Elasticsearch\SearchAdapter\Query\Builder\Sort">
+        <plugin name="sortPlugin" type="BabaYaga\Test\Plugin\Search\Query\Sort" />
+    </type>
+    <virtualType name="additionalFieldsProviderForElasticsearch" type="Magento\AdvancedSearch\Model\Adapter\DataMapper\AdditionalFieldsProvider">
+        <arguments>
+            <argument name="fieldsProviders" xsi:type="array">
+                <item name="entity_ids" xsi:type="object">BabaYaga\Test\Model\Adapter\BatchDataMapper\EntityIdFieldsProvider</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
